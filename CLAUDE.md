@@ -36,6 +36,26 @@ SolidWorks 二次开发示例资料库（中文）。覆盖 C# / VB.NET 调用 S
 - **PaineTool 的 PostBuildEvent 会自动 `regasm /codebase` 注册 Add-in**（配合 `<RegisterForComInterop>true</RegisterForComInterop>`）。重建插件 = 自动重新注册；卸载用 `regasm /u`（见 README §"卸载插件"）。
 - **PaineTool.csproj 的调试启动程序被锁成 SolidWorks 主程序**（`<StartProgram>D:\Program Files\SOLIDWORKS Corp\SOLIDWORKS\\SldWorks.exe</StartProgram>`）。F5 启动的是 SW 主进程，插件被加载；不要为插件单独配"启动外部程序"。
 
+## 常用命令
+
+- 还原 NuGet（首次克隆 / `packages/` 被清理后必跑）：
+  `nuget restore CSharpAndSolidWorks.sln`
+- 无头构建整个解决方案：
+  `msbuild CSharpAndSolidWorks.sln /p:Configuration=Debug /p:Platform="Any CPU"`
+  （只构建 PaineTool 插件：`msbuild PaineTool\PaineTool.csproj /p:Configuration=Debug` —— 顺带触发 PostBuildEvent 自动 regasm /codebase 注册）
+- 卸载 PaineTool Add-in（手测需要干净环境时）：
+  `%Windir%\Microsoft.NET\Framework64\v4.0.30319\regasm /u PaineTool\bin\Debug\PaineTool.dll`
+- **没有 `dotnet build` / 没有 `dotnet test`**。这是 .NET Framework 4.8 旧式 csproj，不要尝试 SDK-style 命令。
+
+## 验证流程（无自动化测试项目）
+
+每个新 API 演示走"在 SolidWorks 中人工跑一遍"：
+1. 先 `msbuild` 确认 0 error；warning 留着（项目 `<TreatWarningsAsErrors>false</TreatWarningsAsErrors>`）。
+2. 启动 64 位 SolidWorks（`SldWorks.exe`），打开演示零件（`CSharpAndSolidWorks/TemplateModel/` 或根目录 `TMYTest.SLDPRT`）。
+3. 运行可执行程序 / Add-in，对照 README §"功能详细说明"检查输出窗口与文件结果。
+4. 对涉及装配 / 工程图 / eDrawings 的子工具（CSharpAndSolidWorks 子目录），独立启动各自 exe 验证。
+5. **不要**为这个仓库新增测试工程（`*.Tests.csproj`）；CLAUDE.md 已经声明"没有测试项目"，新增会破坏现有构建结构。
+
 ## 架构入口（修改前先读这几个文件）
 
 - `CSharpAndSolidWorks/Utility.cs`（≈7.8 KB）：连接、遍历、常用 API 封装，几乎所有功能页都引用。新功能**先复用/扩展这里**的 helper，不要直接调 COM。

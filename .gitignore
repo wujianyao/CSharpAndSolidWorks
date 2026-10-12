@@ -259,3 +259,25 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+# PDF 文件
+*.pdf
+
+# 压缩包
+*.zip
+*.rar
+
+# 视频文件
+*.mp4
+*.avi
+*.mkv
+*.mov
+*.wmv
+*.flv
+*.webm
+*.m4v
+*.mpg
+*.mpeg
+*.3gp
+*.ogv
+*.ts
+*.vob
