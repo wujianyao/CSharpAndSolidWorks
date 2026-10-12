@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{646B6723-C58E-40B1-BCA9-3817F73E5F88}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>CSharpAndSolidWorks</RootNamespace>
+    <AssemblyName>CSharpAndSolidWorks</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <NoWarn>CS0168;CS0219</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GeometRi, Version=1.3.5.16, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\GeometRi.1.3.5.16\lib\net20\GeometRi.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Paine.SolidWorks.Base, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Paine.SolidWorks.Base.2018.0.0.1\lib\Paine.SolidWorks.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="SolidWorks.Interop.cosworks">
+      <HintPath>..\dll\SolidWorks.Interop.cosworks.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="SolidWorks.Interop.sldworks, Version=26.5.0.66, Culture=neutral, PublicKeyToken=7c4797c3e4eeac03, processorArchitecture=MSIL">
+      <HintPath>..\packages\Paine.SolidWorks.Base.2018.0.0.1\lib\SolidWorks.Interop.sldworks.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="SolidWorks.Interop.swcommands">
+      <HintPath>..\dll\SolidWorks.Interop.swcommands.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="SolidWorks.Interop.swconst, Version=26.5.0.66, Culture=neutral, PublicKeyToken=19f43e188e4269d8, processorArchitecture=MSIL">
+      <HintPath>..\packages\Paine.SolidWorks.Base.2018.0.0.1\lib\SolidWorks.Interop.swconst.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="SolidWorks.Interop.swdimxpert, Version=26.0.1.1, Culture=neutral, PublicKeyToken=5e9cf5ab4ebec26a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\dll\SolidWorks.Interop.swdimxpert.dll</HintPath>
+    </Reference>
+    <Reference Include="SolidWorks.Interop.swdocumentmgr, Version=26.0.1.1, Culture=neutral, PublicKeyToken=e52dfa2d3a1e978a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>..\dll\SolidWorks.Interop.swdocumentmgr.dll</HintPath>
+    </Reference>
+    <Reference Include="SolidWorks.Interop.swpublished, Version=26.4.0.75, Culture=neutral, PublicKeyToken=89a97bdc5284e6d8, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\dll\SolidWorks.Interop.swpublished.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="unvell.ReoGrid, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\unvell.ReoGrid.dll.2.1.0.0\lib\20\unvell.ReoGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddCenterPointForSketch.cs" />
+    <Compile Include="AddSizeDimensionForDrawing.cs" />
+    <Compile Include="BodyHelper.cs" />
+    <Compile Include="ComStream.cs" />
+    <Compile Include="ExportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExportForm.designer.cs">
+      <DependentUpon>ExportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCopy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCopy.designer.cs">
+      <DependentUpon>FrmCopy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDragDrop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDragDrop.Designer.cs">
+      <DependentUpon>FrmDragDrop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmScreen.designer.cs">
+      <DependentUpon>FrmScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyInterence.cs" />
+    <Compile Include="screenClass\GetWindowsSize.cs" />
+    <Compile Include="screenClass\MonitorInfo.cs" />
+    <Compile Include="MyPane.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyPane.Designer.cs">
+      <DependentUpon>MyPane.cs</DependentUpon>
+    </Compile>
+    <Compile Include="screenClass\MyScreen.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ThumbnailHelper.cs" />
+    <Compile Include="Utility.cs" />
+    <EmbeddedResource Include="ExportForm.resx">
+      <DependentUpon>ExportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCopy.resx">
+      <DependentUpon>FrmCopy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDragDrop.resx">
+      <DependentUpon>FrmDragDrop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmScreen.resx">
+      <DependentUpon>FrmScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyPane.resx">
+      <DependentUpon>MyPane.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="BodiesToAssembly.swp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="TemplateModel\01_CheckResult.sldprt" />
+    <None Include="TemplateModel\44_GetSketchText.SLDPRT" />
+    <None Include="TemplateModel\45_JoinTest.sldasm" />
+    <None Include="TemplateModel\54_ConvertEntitiesToSketch.SLDPRT" />
+    <None Include="TemplateModel\57_DeleteRelation.sldprt" />
+    <None Include="TemplateModel\68-AutoR.sldprt" />
+    <None Include="TemplateModel\Assembly.asmdot" />
+    <None Include="TemplateModel\bodies.sldasm" />
+    <None Include="TemplateModel\bodies.SLDPRT" />
+    <None Include="TemplateModel\bodies\bodies-零件1.sldprt" />
+    <None Include="TemplateModel\bodies\bodies-零件2.sldprt" />
+    <None Include="TemplateModel\bodies\bodies-零件3.sldprt" />
+    <None Include="TemplateModel\bodies\bodies-零件7.sldprt" />
+    <None Include="TemplateModel\bodies\复制-bodies-零件2-2.sldprt" />
+    <None Include="TemplateModel\bodies\复制-bodies-零件2-3.sldprt" />
+    <None Include="TemplateModel\bodies\复制-bodies-零件2.sldprt" />
+    <None Include="TemplateModel\CenterPoint.SLDPRT" />
+    <None Include="TemplateModel\clamp1.sldprt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="TemplateModel\clamp2.sldprt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="TemplateModel\clamp3.sldprt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="TemplateModel\Drawing.drwdot" />
+    <None Include="TemplateModel\DrawingTemplate.DRWDOT" />
+    <None Include="TemplateModel\drwdot\gb_a3.drwdot" />
+    <None Include="TemplateModel\drwdot\gb_a4.drwdot" />
+    <None Include="TemplateModel\globalvariable.SLDPRT" />
+    <None Include="TemplateModel\HoleAutoDimension1.SLDDRW" />
+    <None Include="TemplateModel\HoleAutoDimension1.SLDPRT" />
+    <None Include="TemplateModel\HolePlate-2.SLDDRW" />
+    <None Include="TemplateModel\HolePlate-2.SLDPRT" />
+    <None Include="TemplateModel\HolePlate.SLDDRW" />
+    <None Include="TemplateModel\HolePlate.SLDPRT" />
+    <None Include="TemplateModel\ImportDWG.dwg" />
+    <None Include="TemplateModel\InsertHole.SLDPRT" />
+    <None Include="TemplateModel\JoinPart2.SLDPRT" />
+    <None Include="TemplateModel\localBodies-1.sldprt" />
+    <None Include="TemplateModel\MateTest.sldprt" />
+    <None Include="TemplateModel\MBDTest.SLDPRT" />
+    <None Include="TemplateModel\MBDTest_Clear.SLDPRT" />
+    <None Include="TemplateModel\Measure.SLDDRW" />
+    <None Include="TemplateModel\Measure.SLDPRT" />
+    <None Include="TemplateModel\Measure_defeature.sldprt" />
+    <None Include="TemplateModel\Part.prtdot" />
+    <None Include="TemplateModel\PictureAndQRCode.SLDDRW" />
+    <None Include="TemplateModel\replaceDrawingRef\AA%28BB%29 - 副本.slddrw" />
+    <None Include="TemplateModel\replaceDrawingRef\AA%28BB%29 - 副本.SLDPRT" />
+    <None Include="TemplateModel\replaceDrawingRef\AA%28BB%29.slddrw" />
+    <None Include="TemplateModel\replaceDrawingRef\AA%28BB%29.SLDPRT" />
+    <None Include="TemplateModel\repleaceReference\part1.SLDDRW" />
+    <None Include="TemplateModel\repleaceReference\part1.SLDPRT" />
+    <None Include="TemplateModel\repleaceReference\part1new.SLDPRT" />
+    <None Include="TemplateModel\sendToCustomerBodies-1.sldprt" />
+    <None Include="TemplateModel\sheetformat\a4 - gb.slddrt" />
+    <None Include="TemplateModel\ShuangLiangDuanLiang.SLDPRT" />
+    <None Include="TemplateModel\Simulation API Demo.SLDPRT" />
+    <None Include="TemplateModel\smallball.dat" />
+    <None Include="TemplateModel\TempAssembly.sldasm" />
+    <None Include="TemplateModel\TempAssembly.SLDDRW" />
+    <None Include="TemplateModel\TestBlock.SLDBLK" />
+    <None Include="TemplateModel\WeldmentTest.SLDPRT" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bomlist.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="eDrawingDLL\MyeDrawing.vbproj">
+      <Project>{3595e4ae-c36f-4690-a423-3f2192c94bc0}</Project>
+      <Name>MyeDrawing</Name>
+    </ProjectReference>
+    <ProjectReference Include="GetRayIntersectionWithBody\GetRayIntersectionWithBody.csproj">
+      <Project>{0e54076a-0241-409a-b787-33d7738d75b1}</Project>
+      <Name>GetRayIntersectionWithBody</Name>
+    </ProjectReference>
+    <ProjectReference Include="InsertDrawingNote\InsertDrawingNote.csproj">
+      <Project>{1645944c-40e0-4a01-aca3-d62a35e01a97}</Project>
+      <Name>InsertDrawingNote</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TemplateModel\bodies.bmp" />
+    <Content Include="TemplateModel\oc0zwe3w.bmp" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
